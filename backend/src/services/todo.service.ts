@@ -19,6 +19,13 @@ class TodoService {
     return { message: "Your to-do item has been successfully created!", data: todo, statusCode: 201, success: true }
   }
 
+
+  public async findAll(): IResponseStatus<ITodo[]> {
+    const todo = await this.model.findAll()
+
+    return { message: "Your to-do all list!", data: todo, statusCode: 200, success: true }
+  }
+
 }
 
 export default TodoService
