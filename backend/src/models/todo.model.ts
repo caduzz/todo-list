@@ -13,6 +13,12 @@ class TodoModel {
 
     return data
   }
+
+  public async findAll(): Promise<ITodo[] | null> {
+    const data = await this.prisma.todo.findMany()
+
+    return data
+  }
 }
 
 export default TodoModel
