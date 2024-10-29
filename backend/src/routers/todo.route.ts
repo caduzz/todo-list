@@ -9,4 +9,9 @@ router.post("/create",
   (req, res) => controller.create(req, res)
 )
 
+router.get("/",
+  (req, res) => controller.findAll(req, res)
+)
+
+
 export default router
