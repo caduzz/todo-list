@@ -21,7 +21,7 @@ class TodoModel {
   }
 
   public async findById(id: string): Promise<ITodo | null> {
-    const data = await this.prisma.todo.findUniqueOrThrow({ where: { id } })
+    const data = await this.prisma.todo.findUnique({ where: { id } })
 
     return data
   }

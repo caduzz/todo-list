@@ -27,11 +27,13 @@ class TodoService {
 
 
   public async updateStatusById(id: string, status: boolean): IResponseStatus<ITodo> {
-    const todo = await this.model.updateStatusById(id, status)
+    const todoValidate = await this.model.findById(id)
 
-    if (!todo) {
+    if (!todoValidate) {
       return { message: "Your to-do not found", statusCode: 404, success: false }
     }
+
+    const todo = await this.model.updateStatusById(id, status)
 
     return { message: "Your to-do update!", data: todo, statusCode: 200, success: true }
   }
