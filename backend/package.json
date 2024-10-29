@@ -3,6 +3,13 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "build": "/bin/sh tsc_eval.sh",
+    "db:reset": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
+    "prestart": "npm run build && npm run db:reset",
+    "start": "node .",
+    "dev": "nodemon --watch \"./src/**\" ./src/server.ts"
+  },
   "devDependencies": {
     "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",
