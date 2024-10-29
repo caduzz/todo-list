@@ -19,6 +19,12 @@ class TodoModel {
 
     return data
   }
+
+  public async updateStatusById(id: string, status: boolean): Promise<ITodo | null> {
+    const data = await this.prisma.todo.update({ where: { id }, data: { status } })
+
+    return data
+  }
 }
 
 export default TodoModel
