@@ -16,6 +16,12 @@ class TodoController {
 
     res.status(statusCode).json({ message, statusCode, data })
   }
+
+  public async findAll(_req: Request, res: Response) {
+    const { statusCode, message, data } = await this.service.findAll()
+
+    res.status(statusCode).json({ message, statusCode, data })
+  }
 }
 
 export default TodoController
