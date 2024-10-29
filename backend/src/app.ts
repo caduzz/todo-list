@@ -1,5 +1,7 @@
 import * as express from 'express'
 
+import TodoRouter from './routers/todo.route'
+
 class App {
   public app: express.Express
 
@@ -8,9 +10,7 @@ class App {
 
     this.config()
 
-    this.app.use('/', (_req, res) => {
-      res.json("Oi")
-    })
+    this.app.use('/todo', TodoRouter)
   }
 
   private config(): void {
