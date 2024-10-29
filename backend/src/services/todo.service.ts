@@ -12,6 +12,12 @@ class TodoService {
 
   public async create(description: string): IResponseStatus<ITodo> {
     const todo = await this.model.create(description)
+
+    if (todo) {
+      return { message: "An error occurred while creating your to-do item", statusCode: 400, success: false }
+    }
+
+    return { message: "Your to-do item has been successfully created!", data: todo, statusCode: 201, success: true }
   }
 
 }
