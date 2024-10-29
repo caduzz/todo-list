@@ -22,6 +22,15 @@ class TodoController {
 
     res.status(statusCode).json({ message, statusCode, data })
   }
+
+  public async updateStatusById(req: Request, res: Response) {
+    const { todo_id } = req.params
+    const { status }: { status: boolean } = req.body
+
+    const { statusCode, message, data } = await this.service.updateStatusById(todo_id, status)
+
+    res.status(statusCode).json({ message, statusCode, data })
+  }
 }
 
 export default TodoController

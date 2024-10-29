@@ -13,5 +13,8 @@ router.get("/",
   (req, res) => controller.findAll(req, res)
 )
 
+router.put("/:todo_id",
+  (req, res) => controller.updateStatusById(req, res)
+)
 
 export default router
