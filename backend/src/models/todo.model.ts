@@ -20,6 +20,12 @@ class TodoModel {
     return data
   }
 
+  public async findById(id: string): Promise<ITodo | null> {
+    const data = await this.prisma.todo.findUniqueOrThrow({ where: { id } })
+
+    return data
+  }
+
   public async updateStatusById(id: string, status: boolean): Promise<ITodo | null> {
     const data = await this.prisma.todo.update({ where: { id }, data: { status } })
 
