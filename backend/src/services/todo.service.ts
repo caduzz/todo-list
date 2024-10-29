@@ -19,11 +19,21 @@ class TodoService {
     return { message: "Your to-do item has been successfully created!", data: todo, statusCode: 201, success: true }
   }
 
-
   public async findAll(): IResponseStatus<ITodo[]> {
     const todo = await this.model.findAll()
 
     return { message: "Your to-do all list!", data: todo, statusCode: 200, success: true }
+  }
+
+
+  public async updateStatusById(id: string, status: boolean): IResponseStatus<ITodo> {
+    const todo = await this.model.updateStatusById(id, status)
+
+    if (!todo) {
+      return { message: "Your to-do not found", statusCode: 404, success: false }
+    }
+
+    return { message: "Your to-do update!", data: todo, statusCode: 200, success: true }
   }
 
 }
