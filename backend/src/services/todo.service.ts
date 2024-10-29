@@ -9,11 +9,10 @@ class TodoService {
     this.model = new TodoModel()
   }
 
-
   public async create(description: string): IResponseStatus<ITodo> {
     const todo = await this.model.create(description)
 
-    if (todo) {
+    if (!todo) {
       return { message: "An error occurred while creating your to-do item", statusCode: 400, success: false }
     }
 

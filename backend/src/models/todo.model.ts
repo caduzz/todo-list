@@ -10,6 +10,7 @@ class TodoModel {
 
   public async create(description: string): Promise<ITodo | null> {
     const data = await this.prisma.todo.create({ data: { description } })
+
     return data
   }
 }
