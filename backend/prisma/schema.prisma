@@ -10,5 +10,5 @@ datasource db {
 model todo {
   id          String  @id @default(uuid())
   description String
-  status      Boolean
+  status      Boolean @default(false)
 }
