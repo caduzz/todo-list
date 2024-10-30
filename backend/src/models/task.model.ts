@@ -9,31 +9,31 @@ class TaskModel {
   }
 
   public async create(description: string): Promise<ITask | null> {
-    const data = await this.prisma.todo.create({ data: { description } })
+    const data = await this.prisma.task.create({ data: { description } })
 
     return data
   }
 
   public async findAll(): Promise<ITask[] | null> {
-    const data = await this.prisma.todo.findMany()
+    const data = await this.prisma.task.findMany()
 
     return data
   }
 
   public async findById(id: string): Promise<ITask | null> {
-    const data = await this.prisma.todo.findUnique({ where: { id } })
+    const data = await this.prisma.task.findUnique({ where: { id } })
 
     return data
   }
 
   public async updateStatusById(id: string, status: boolean): Promise<ITask | null> {
-    const data = await this.prisma.todo.update({ where: { id }, data: { status } })
+    const data = await this.prisma.task.update({ where: { id }, data: { status } })
 
     return data
   }
 
   public async deleteById(id: string): Promise<ITask | null> {
-    const data = await this.prisma.todo.delete({ where: { id } })
+    const data = await this.prisma.task.delete({ where: { id } })
 
     return data
   }

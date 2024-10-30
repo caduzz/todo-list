@@ -7,8 +7,10 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model todo {
+model task {
   id          String  @id @default(uuid())
   description String
   status      Boolean @default(false)
+
+  @@map("task")
 }
