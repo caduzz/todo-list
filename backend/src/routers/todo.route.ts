@@ -17,4 +17,8 @@ router.put("/:todo_id",
   (req, res) => controller.updateStatusById(req, res)
 )
 
+router.delete("/:todo_id",
+  (req, res) => controller.deleteById(req, res)
+)
+
 export default router
