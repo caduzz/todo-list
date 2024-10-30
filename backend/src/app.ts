@@ -2,7 +2,7 @@ import * as express from 'express'
 
 import 'express-async-errors'
 
-import TodoRouter from './routers/todo.route'
+import TaskRouter from './routers/task.route'
 import ErrorMiddlewares from './middlewares/error.middlewares'
 
 class App {
@@ -15,7 +15,7 @@ class App {
 
     this.config()
 
-    this.app.use('/todo', TodoRouter)
+    this.app.use('/task', TaskRouter)
     this.app.use(this.error.handling)
   }
 

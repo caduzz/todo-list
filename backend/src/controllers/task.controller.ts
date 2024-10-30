@@ -1,12 +1,12 @@
 import { Request, Response } from "express"
 
-import TodoService from "../services/todo.service"
+import TaskService from "../services/task.service"
 
-class TodoController {
-  private service: TodoService
+class TaskController {
+  private service: TaskService
 
   constructor() {
-    this.service = new TodoService()
+    this.service = new TaskService()
   }
 
   public async create(req: Request, res: Response) {
@@ -24,20 +24,20 @@ class TodoController {
   }
 
   public async updateStatusById(req: Request, res: Response) {
-    const { todo_id } = req.params
+    const { task_id } = req.params
     const { status }: { status: boolean } = req.body
 
-    const { statusCode, message, data } = await this.service.updateStatusById(todo_id, status)
+    const { statusCode, message, data } = await this.service.updateStatusById(task_id, status)
 
     res.status(statusCode).json({ message, statusCode, data })
   }
   public async deleteById(req: Request, res: Response) {
-    const { todo_id } = req.params
+    const { task_id } = req.params
 
-    const { statusCode, message, data } = await this.service.delete(todo_id)
+    const { statusCode, message, data } = await this.service.delete(task_id)
 
     res.status(statusCode).json({ message, statusCode, data })
   }
 }
 
-export default TodoController
+export default TaskController
