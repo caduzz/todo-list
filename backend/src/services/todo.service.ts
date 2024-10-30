@@ -33,6 +33,10 @@ class TodoService {
       return { message: "Your to-do not found", statusCode: 404, success: false }
     }
 
+    if (todoValidate.status === status) {
+      return { message: "Your to-do not update status equal", statusCode: 400, success: false }
+    }
+
     const todo = await this.model.updateStatusById(id, status)
 
     return { message: "Your to-do update!", data: todo, statusCode: 200, success: true }
