@@ -6,7 +6,7 @@ import { NextFunction, Request, Response } from "express"
 import { BadRequestError } from "../helpers/error.helper"
 import { ITodo } from "../interfaces/ITodo";
 
-class TodoMiddlewares {
+class TodoMiddleware {
   public create(req: Request, _res: Response, next: NextFunction) {
     const { ...body } = req.body
 
@@ -56,4 +56,4 @@ class TodoMiddlewares {
   }
 }
 
-export default TodoMiddlewares
+export default TodoMiddleware
