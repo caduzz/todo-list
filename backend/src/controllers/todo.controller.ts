@@ -31,6 +31,13 @@ class TodoController {
 
     res.status(statusCode).json({ message, statusCode, data })
   }
+  public async deleteById(req: Request, res: Response) {
+    const { todo_id } = req.params
+
+    const { statusCode, message, data } = await this.service.delete(todo_id)
+
+    res.status(statusCode).json({ message, statusCode, data })
+  }
 }
 
 export default TodoController
