@@ -31,7 +31,9 @@ class TodoMiddleware {
       status: Joi.boolean().required(),
     });
 
-    const { error } = schema.validate({ body, id })
+    console.log(id, body)
+
+    const { error } = schema.validate({ id, ...body })
 
     if (error)
       throw new BadRequestError(error.message)
