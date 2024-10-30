@@ -21,6 +21,39 @@ class TodoMiddlewares {
 
     next()
   }
+
+  public update(req: Request, _res: Response, next: NextFunction) {
+    const { todo_id: id } = req.params
+    const { ...body } = req.body
+
+    const schema = Joi.object<ITodo>({
+      id: Joi.string().required(),
+      status: Joi.boolean().required(),
+    });
+
+    const { error } = schema.validate({ body, id })
+
+    if (error)
+      throw new BadRequestError(error.message)
+
+    next()
+  }
+
+  public delete(req: Request, _res: Response, next: NextFunction) {
+    const { todo_id: id } = req.params
+
+
+    const schema = Joi.object<ITodo>({
+      id: Joi.string().required(),
+    });
+
+    const { error } = schema.validate(id)
+
+    if (error)
+      throw new BadRequestError(error.message)
+
+    next()
+  }
 }
 
 export default TodoMiddlewares
