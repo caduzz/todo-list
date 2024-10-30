@@ -38,6 +38,18 @@ class TodoService {
     return { message: "Your to-do update!", data: todo, statusCode: 200, success: true }
   }
 
+  public async delete(id: string): IResponseStatus<ITodo> {
+    const todoValidate = await this.model.findById(id)
+
+    if (!todoValidate) {
+      return { message: "Your to-do not found", statusCode: 404, success: false }
+    }
+
+    const todo = await this.model.deleteById(id)
+
+    return { message: "Your to-do update!", data: todo, statusCode: 200, success: true }
+  }
+
 }
 
 export default TodoService
