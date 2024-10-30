@@ -1,16 +1,22 @@
 import * as express from 'express'
 
+import 'express-async-errors'
+
 import TodoRouter from './routers/todo.route'
+import ErrorMiddlewares from './middlewares/error.middlewares'
 
 class App {
+  public error: ErrorMiddlewares
   public app: express.Express
 
   constructor() {
+    this.error = new ErrorMiddlewares()
     this.app = express()
 
     this.config()
 
     this.app.use('/todo', TodoRouter)
+    this.app.use(this.error.handling)
   }
 
   private config(): void {
