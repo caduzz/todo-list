@@ -31,6 +31,12 @@ class TodoModel {
 
     return data
   }
+
+  public async delete(id: string): Promise<ITodo | null> {
+    const data = await this.prisma.todo.delete({ where: { id } })
+
+    return data
+  }
 }
 
 export default TodoModel
