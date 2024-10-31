@@ -22,14 +22,39 @@ export const TaskContainer = styled.div<{ status: boolean }>`
     align-items: center;
     
     input[type="checkbox" i] {
+      position: relative;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
       box-sizing: border-box;
-      width: 17px;
+
+      width: 18px;
       height: 17px;
       
       border: 2px solid #4EA8DE;
       border-radius: 50%;
       appearance: none;
 
+      &::before {
+        content: "";
+        display: flex;
+        position: absolute;
+        margin-top: 6px;
+        margin-right: 2px;
+        width: 2px;
+        height: 6px;
+        border: solid #ffffff;
+        border-width: 0 2px 2px 0;
+        opacity: 0;
+        transition: .2s;
+      }
+
+      &:checked::before {
+        opacity: 1;
+        transform: rotate(45deg) translate(-50%, -50%);
+      }
+  
       ${p => p.status && `
         background-color: #5E60CE;
         border-color: #5E60CE;
