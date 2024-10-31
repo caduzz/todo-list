@@ -7,7 +7,7 @@ import Button from "../../components/Button"
 import Empty from "../../components/Empty"
 import Task from "../../components/Task"
 import { useCallback, useEffect, useState } from "react"
-import { createTask, getAllTask } from "../../services/api"
+import { createTask, deleteTask, getAllTask, updateTask } from "../../services/api"
 
 
 const Home = () => {
@@ -23,13 +23,17 @@ const Home = () => {
     }
   }
 
-  const handleButtonDelete = () => {
+  const handleButtonUpdate = (id: string, status: boolean) => {
+    updateTask(id, status)
+  }
 
+  const handleButtonDelete = (id: string) => {
+    deleteTask(id)
   }
 
   useEffect(() => {
     getAllTask().then(({ data }) => setTasks(data))
-  }, [handleButtonCreate])
+  }, [handleButtonCreate, handleButtonDelete, handleButtonUpdate])
 
   return (
     <Container>
@@ -55,6 +59,7 @@ const Home = () => {
               <Task
                 key={task.id}
                 onClickDelete={handleButtonDelete}
+                onClickUpdate={handleButtonUpdate}
                 {...task}
               />
             ))

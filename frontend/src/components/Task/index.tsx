@@ -6,17 +6,21 @@ interface TaskProsp {
   id: string
   description: string
   status: boolean
-  onClickDelete: () => void
+  onClickDelete: (id: string) => void
+  onClickUpdate: (id: string, status: boolean) => void
 }
 
-const Task = ({ id, description, status, onClickDelete }: TaskProsp) => {
+const Task = ({ id, description, status, onClickDelete, onClickUpdate }: TaskProsp) => {
   return (
-    <TaskContainer>
+    <TaskContainer
+      onClick={() => onClickUpdate(id, status)}
+      status={status}
+    >
       <div className="checkText">
-        <input type="checkbox" id={id} />
+        <input type="checkbox" id={id} checked={status} />
         <label htmlFor={id} >{description}</label>
       </div>
-      <button className="delete" onClick={onClickDelete}>
+      <button className="delete" onClick={() => onClickDelete(id)}>
         <BiTrash size={16} />
       </button>
     </TaskContainer>

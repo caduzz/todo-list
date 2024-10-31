@@ -35,4 +35,16 @@ export const deleteTask = async (id: string) => {
   } catch (err) {
     return { err };
   }
+}
+
+export const updateTask = async (id: string, status: boolean) => {
+  try {
+    const { data } = await api.put(`/task/${id}`, {
+      status: !status
+    });
+
+    return data;
+  } catch (err) {
+    return { err };
+  }
 } 

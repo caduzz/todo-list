@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
-export const TaskContainer = styled.div`
+export const TaskContainer = styled.div<{ status: boolean }>`
+  user-select: none;
   padding: 16px;
 
   border-radius: 8px;
@@ -34,6 +35,8 @@ export const TaskContainer = styled.div`
       font-family: Inter;
       font-size: 14px;
       font-weight: 400;
+
+      text-decoration: ${p => p.status ? " line-through" : "none"};
     }
   }
 
