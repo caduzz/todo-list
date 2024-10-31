@@ -1,6 +1,7 @@
 import { Container } from "./styles"
 
 import rocket from './../../assets/image/rocket.svg'
+import Input from "../../components/Input"
 
 const Home = () => {
   return (
@@ -10,7 +11,11 @@ const Home = () => {
           <img src={rocket} />
           <h1 className="soonTitle">to<span className="titleColor">do</span></h1>
         </div>
+        <div className="inputArea">
+          <Input />
+        </div>
       </header>
+
     </Container>
   )
 }
