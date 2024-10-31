@@ -40,6 +40,7 @@ export const Container = styled.main`
       max-width: 736px;
 
       display: flex;
+      gap: 8px;
     }
   }
 `
