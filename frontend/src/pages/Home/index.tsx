@@ -50,7 +50,11 @@ const Home = () => {
       <section id="tasks">
         <div className="tasksHeader">
           <p className="taskCreatCount">Tarefas criadas <span className="taskCount">{tasks.length}</span></p>
-          <p className="taskFinishCount">Concluídas <span className="taskCount">{taskFilter.length}</span></p>
+          <p className="taskFinishCount">Concluídas
+            <span className="taskCount">
+              {!taskFilter.length ? 0 : `${tasks.length} de ${taskFilter.length}`}
+            </span>
+          </p>
         </div>
         <div className="tasksList">
           {tasks.length <= 0 ?

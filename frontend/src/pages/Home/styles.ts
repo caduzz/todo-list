@@ -62,7 +62,6 @@ export const Container = styled.main`
         font-family: Inter;
         font-size: 14px;
         font-weight: 700;
-
       }
 
       .taskFinishCount {
@@ -79,6 +78,7 @@ export const Container = styled.main`
         padding: 2px 8px;
         background-color: #333333;
         border-radius: 15px;
+        margin-left: 5px;
       }
     }
 
