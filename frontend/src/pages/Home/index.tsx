@@ -52,7 +52,7 @@ const Home = () => {
           <p className="taskCreatCount">Tarefas criadas <span className="taskCount">{tasks.length}</span></p>
           <p className="taskFinishCount">Concluídas
             <span className="taskCount">
-              {!taskFilter.length ? 0 : `${tasks.length} de ${taskFilter.length}`}
+              {!taskFilter.length ? 0 : `${taskFilter.length} de ${tasks.length}`}
             </span>
           </p>
         </div>

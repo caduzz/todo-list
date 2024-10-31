@@ -17,13 +17,23 @@ export const TaskContainer = styled.div<{ status: boolean }>`
 
   .checkText {
     width: 100%;
-    gap: 5px;
+    gap: 10px;
     display: flex;
     align-items: center;
     
-    input {
-      border: none;
+    input[type="checkbox" i] {
+      box-sizing: border-box;
+      width: 17px;
+      height: 17px;
+      
+      border: 2px solid #4EA8DE;
       border-radius: 50%;
+      appearance: none;
+
+      ${p => p.status && `
+        background-color: #5E60CE;
+        border-color: #5E60CE;
+      `}
     }
 
     label {
@@ -31,7 +41,7 @@ export const TaskContainer = styled.div<{ status: boolean }>`
       align-items: center;
       width: 100%;
       height: 100%;
-      color: #F2F2F2;
+      color:${p => p.status ? "#808080" : "#F2F2F2"};
       font-family: Inter;
       font-size: 14px;
       font-weight: 400;
