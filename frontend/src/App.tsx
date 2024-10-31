@@ -1,10 +1,12 @@
+import Home from "./pages/Home";
+import GlobalStyle from "./styles/GlobalStyles";
 
-import './App.css';
-
-function App() {
+const App = () => {
   return (
-    <div className="App">
-    </div>
+    <main>
+      <Home />
+      <GlobalStyle />
+    </main>
   );
 }
 
