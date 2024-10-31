@@ -1,7 +1,9 @@
 import { Container } from "./styles"
 
-import rocket from './../../assets/image/rocket.svg'
 import Input from "../../components/Input"
+import Button from "../../components/Button"
+
+import rocket from './../../assets/image/rocket.svg'
 
 const Home = () => {
   return (
@@ -13,6 +15,7 @@ const Home = () => {
         </div>
         <div className="inputArea">
           <Input />
+          <Button />
         </div>
       </header>
 

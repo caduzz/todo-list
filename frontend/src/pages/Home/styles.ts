@@ -35,8 +35,11 @@ export const Container = styled.main`
     .inputArea {
       bottom: -25px;
       position: absolute;
+
       width: 100%;
       max-width: 736px;
+
+      display: flex;
     }
   }
 `
