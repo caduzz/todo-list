@@ -8,10 +8,9 @@ export const getAllTask = async () => {
   try {
     const { data } = await api.get("/task");
 
-    console.log(data)
     return data;
   } catch (err) {
-    return { err };
+    return [];
   }
 }
 

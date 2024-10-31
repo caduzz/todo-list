@@ -14,7 +14,7 @@ const Home = () => {
   const [tasks, setTasks] = useState<ITask[]>([])
   const [inputTask, setInputTask] = useState<string>("")
 
-  const taskFilter = tasks.filter(task => task.status)
+  const taskFilter = tasks.length > 0 ? tasks.filter(task => task.status) : []
 
   const handleButtonCreate = () => {
     if (inputTask !== "") {
