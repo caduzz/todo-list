@@ -2,9 +2,15 @@ import { ButtonContainer } from "./styles"
 
 import { FaPlusCircle } from 'react-icons/fa'
 
-const Button = () => {
+interface ButtonProps {
+  onClick: () => void
+}
+
+const Button = ({ onClick }: ButtonProps) => {
   return (
-    <ButtonContainer>
+    <ButtonContainer
+      onClick={onClick}
+    >
       <p>Criar</p>
       <FaPlusCircle color="#F2F2F2" />
     </ButtonContainer>

@@ -83,11 +83,15 @@ export const Container = styled.main`
     }
 
     .tasksList {
+      gap: 15px;
       width: 100%;
+      padding-top: 25px;
 
       border-top: 1px solid #333333;
       border-radius: 8px;
 
+      display: flex;
+      flex-direction: column;
     }
 
   }

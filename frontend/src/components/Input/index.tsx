@@ -1,8 +1,18 @@
 import { InputContainer } from "./styles"
 
-const Input = () => {
+interface InputProps {
+  value: string,
+  onChange: (v: string) => void
+}
+
+const Input = ({ value, onChange }: InputProps) => {
   return (
-    <InputContainer type="text" placeholder="Adicione uma nova tarefa" />
+    <InputContainer
+      type="text"
+      placeholder="Adicione uma nova tarefa"
+      value={value}
+      onChange={({ target }) => onChange(target.value)}
+    />
   )
 }
 
